@@ -1,5 +1,5 @@
 from syntax import StateMachine, SyntaxAnalyseError
-from Lexical_analyse import Token, TokenizerError, CommandTokenizer
+from Lexical_analysis import Token, TokenizerError, CommandTokenizer
 from semantik import Semantik
 
 
