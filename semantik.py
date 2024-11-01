@@ -39,7 +39,7 @@ class Semantik:
             "open slide": Arguments(command[1:], 2),
             "add shape": Arguments(command[1:], 0),
             "del shape": Arguments(command[1:], 2),
-            
+            "print document": Arguments(command[1:], 0),
             "exit": Arguments(command[1:], 0),
             'help': Arguments(command[1:], 0),
         }
