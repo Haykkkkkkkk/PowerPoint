@@ -1,3 +1,6 @@
+from slideEditor import SlideEditor
+from slide import Slide
+
 
 class CommandMeta(type):
     _commands = {}
@@ -29,8 +32,9 @@ class AddSlide(Command):
     def execute(self):
         pos = self.params.get("pos")
         print(f"Executing AddSlide with pos={pos}")
+        SlideEditor().add_slide(Slide(pos))
         
-
+ 
 
 class DelSlide(Command):
     def execute(self):

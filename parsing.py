@@ -19,7 +19,7 @@ class Parser:
                 raise SyntaxAnalyseError("Error")
             command.append(token)
         real_command = self.get_command(command)
-        print(Semantik(real_command).isMatch())
+
         return Semantik(real_command).isMatch()
 
     def get_command(self, command):
