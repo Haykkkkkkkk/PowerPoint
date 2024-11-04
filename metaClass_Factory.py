@@ -40,6 +40,8 @@ class DelSlide(Command):
     def execute(self):
         pos = self.params.get("pos")
         print(f"Executing DelSLide with pos={pos}")
+        SlideEditor().del_slide(pos)
+        
 
 
 class OpenSlide(Command):
