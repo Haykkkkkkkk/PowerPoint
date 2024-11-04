@@ -5,4 +5,4 @@ class Slide:
         self.shapes = []
 
     def __repr__(self) -> str:
-        return f"Slide(Index: {self.pos}\n       Shapes:{self.shapes}"
+        return f" Slide(Index: {self.pos}\n       Shapes:{self.shapes}\n"

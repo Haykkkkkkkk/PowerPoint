@@ -15,11 +15,13 @@ class Parser:
         for word in self.command_string.split():
             token = tokenizer.tokenize_command(word)
             sm.transition(token)
+            print(token)
             if StateMachine.state == "Error":
                 raise SyntaxAnalyseError("Error")
             command.append(token)
         real_command = self.get_command(command)
-
+        CommandTokenizer._start_comander = True
+        StateMachine.state = "Start"
         return Semantik(real_command).isMatch()
 
     def get_command(self, command):

@@ -1,6 +1,6 @@
 from slideEditor import SlideEditor
 from slide import Slide
-
+import sys
 
 class CommandMeta(type):
     _commands = {}
@@ -51,11 +51,13 @@ class OpenSlide(Command):
 class Exit(Command):
     def execute(self):
         print(f"Executing Exit")
+        sys.exit()
 
 
 class PrintDocument(Command):
     def execute(self):
         print("execute PrintDocument")
+        SlideEditor().print_document()
 
 
 class PrintAllShapes(Command):
