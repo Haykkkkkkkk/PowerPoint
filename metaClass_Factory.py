@@ -1,5 +1,6 @@
-from slideEditor import SlideEditor
+from Editor import Editor
 from slide import Slide
+from item import Item
 import sys
 
 class CommandMeta(type):
@@ -32,7 +33,7 @@ class AddSlide(Command):
     def execute(self):
         pos = self.params.get("pos")
         print(f"Executing AddSlide with pos={pos}")
-        SlideEditor().add_slide(Slide(pos))
+        Editor().add_slide(Slide(pos))
         
  
 
@@ -40,8 +41,9 @@ class DelSlide(Command):
     def execute(self):
         pos = self.params.get("pos")
         print(f"Executing DelSLide with pos={pos}")
-        SlideEditor().del_slide(pos)
+        Editor().del_slide(pos)
         
+
 
 
 class OpenSlide(Command):
@@ -50,6 +52,24 @@ class OpenSlide(Command):
         print(f"Executing OPenSlide with pos={pos}")
 
 
+class AddShape(Command):
+    def execute(self):
+        type = self.params.get("type")
+        item = Item(type)
+        if not self.params.get("x") is None:
+            item.setX(self.params["x"])
+        
+        if not self.params.get("y") is None:
+            item.setY(self.params["y"])
+        
+        if not self.params.get("color") is None:
+            item.setColor(self.params["color"])
+            
+        print(self.params)
+        print(f"Executing AddShape with geo : {item.geometry}, type = {item.type}, color : {item.color}")
+        
+
+        
 class Exit(Command):
     def execute(self):
         print(f"Executing Exit")
@@ -59,7 +79,7 @@ class Exit(Command):
 class PrintDocument(Command):
     def execute(self):
         print("execute PrintDocument")
-        SlideEditor().print_document()
+        Editor().print_document()
 
 
 class PrintAllShapes(Command):
